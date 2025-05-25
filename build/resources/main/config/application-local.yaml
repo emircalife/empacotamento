@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:empacotamentodb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    initialize: true
+    schema: schema.sql
+    # data: data.sql
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      # data-locations: classpath:data.sql
+  jpa:
+    # defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: none  # none, create , create-drop , validate e update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+        dialect: org.hibernate.dialect.H2Dialect
+        use_jdbc_metadata_defaults: false
+        hbm2ddl:
+          import_files: import-staging.sql
+      format-sql: true
+      use-sql-comments: true
+      database-plataform: org.hibernate.dialect.H2Dialect
+    jpa:
+      repositories:
+        bootstrap-mode: default
+  h2:
+    console:
+      enabled: true
+      path: /h2
+      settings:
+        trace: false
+        web-allow-others: false
