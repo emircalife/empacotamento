@@ -6,11 +6,11 @@ spring:
     driverClassName: org.h2.Driver
     initialize: true
     schema: schema.sql
-    # data: data.sql
+    data: data.sql
   sql:
     init:
       mode: always
-      schema-locations: classpath:schema.sql
+      # schema-locations: classpath:schema.sql
       # data-locations: classpath:data.sql
   jpa:
     # defer-datasource-initialization: true
