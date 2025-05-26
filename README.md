@@ -16,11 +16,11 @@ inner join class_shedule cs on cl.id = cs.class_id;
 ------------
 ``` sql
 select 	cl.id,
-		cs.start_time,
-		cs.end_time,
-		case cs.start_time when cs.start_time is null then 'LIVRE'
-		else 'OCUPADA'
-		end as horario
+	cs.start_time,
+	cs.end_time,
+	case cs.start_time when cs.start_time is null then 'LIVRE'
+	else 'OCUPADA'
+	end as horario
 from class_shedule cs
 inner join class cl on cs.class_id = cl.id;
 ```
