@@ -18,9 +18,9 @@ public class PedidoRequestDTO implements Serializable {
 
     private Integer pedido_id;
 
-    private List<Pedido> pedidos;
+    private List<PedidoDTO> pedidosDTO;
 
-    private Produto produto;
+    private List<Produto> produtos;
 
     private Dimensao dimensao;
 
@@ -33,8 +33,8 @@ public class PedidoRequestDTO implements Serializable {
 
     public PedidoRequestDTO(Pedido obj) {
         this.pedido_id = obj.getPedido_id();
-        this.produto = obj.getProduto();
-        this.dimensao = obj.getDimensao();
+        this.produtos.add(obj.getProduto());
+        this.dimensao = obj.getProduto().getDimensoes();
     }
 
 }

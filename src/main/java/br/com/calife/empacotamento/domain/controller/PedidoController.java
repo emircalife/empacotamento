@@ -1,6 +1,9 @@
 package br.com.calife.empacotamento.domain.controller;
 
+import br.com.calife.empacotamento.config.Constants;
 import br.com.calife.empacotamento.domain.documentation.PedidoDocumentation;
+import br.com.calife.empacotamento.domain.entity.DTO.PedidoRequestDTO;
+import br.com.calife.empacotamento.domain.entity.DTO.PedidoResponseDTO;
 import br.com.calife.empacotamento.domain.entity.Pedido;
 import br.com.calife.empacotamento.domain.service.PedidoService;
 import lombok.AllArgsConstructor;
@@ -13,7 +16,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("Pedidos")
+@RequestMapping(Constants.CONTROLLER.PEDIDO.BASE_URL)
 public class PedidoController implements PedidoDocumentation {
     @Autowired
     private PedidoService service;
@@ -47,5 +50,11 @@ public class PedidoController implements PedidoDocumentation {
     public ResponseEntity<Pedido> update(@RequestBody Pedido obj) {
         Pedido objSaved = service.update(obj);
         return ResponseEntity.ok(objSaved);
+    }
+
+    @GetMapping("/separar")
+    public ResponseEntity<List<PedidoResponseDTO>> separarPedido(@RequestBody PedidoRequestDTO obj) {
+        List<PedidoResponseDTO> pedidoSeparado = service.separarPedido(obj);
+        return ResponseEntity.ok(pedidoSeparado);
     }
 }

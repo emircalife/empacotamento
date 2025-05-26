@@ -1,5 +1,6 @@
 package br.com.calife.empacotamento.domain.controller;
 
+import br.com.calife.empacotamento.config.Constants;
 import br.com.calife.empacotamento.domain.documentation.ProdutoDocumentation;
 import br.com.calife.empacotamento.domain.entity.Produto;
 import br.com.calife.empacotamento.domain.service.ProdutoService;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("produtos")
+@RequestMapping(Constants.CONTROLLER.PRODUTO.BASE_URL)
 public class ProdutoController implements ProdutoDocumentation {
     @Autowired
     private ProdutoService service;
@@ -45,7 +46,7 @@ public class ProdutoController implements ProdutoDocumentation {
 
     @PutMapping
     public ResponseEntity<Produto> update(@RequestBody Produto obj) {
-        Produto objFind = service.findById(obj.getProduto_id());
+        Produto objFind = service.findById(obj.getId());
         if (objFind == null) {
             return ResponseEntity.notFound().build();
         }

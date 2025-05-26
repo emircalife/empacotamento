@@ -1,9 +1,6 @@
 package br.com.calife.empacotamento.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +13,12 @@ import lombok.NoArgsConstructor;
 public class Produto {
     @Id
     @Column(name = "produto_id", nullable = false)
-    private Integer produto_id;
+    private Integer id;
 
     @Column(name = "produto")
-    private String nomeProduto;
+    private String produto_id;
+
+    @OneToOne(cascade = { CascadeType.DETACH })
+    @JoinColumn(name = "dimensao_id")
+    private Dimensao dimensoes;
 }

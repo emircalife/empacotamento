@@ -18,8 +18,4 @@ public class Pedido {
     @OneToOne(cascade = { CascadeType.DETACH })
     @JoinColumn(name = "produto_id")
     private Produto produto;
-
-    @OneToOne(cascade = { CascadeType.DETACH })
-    @JoinColumn(name = "dimensao_id")
-    private Dimensao dimensao;
 }

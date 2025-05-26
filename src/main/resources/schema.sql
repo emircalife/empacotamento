@@ -1,10 +1,10 @@
-CREATE TABLE `produto` (
+CREATE TABLE IF NOT EXISTS `produto` (
     `produto_id` INT NOT NULL AUTO_INCREMENT,
     `produto` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`produto_id`)
 );
 
-CREATE TABLE `dimensao` (
+CREATE TABLE IF NOT EXISTS `dimensao` (
     `dimensao_id` INT NOT NULL AUTO_INCREMENT,
     `descricao` VARCHAR(255) NOT NULL,
     `altura` INT NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE `dimensao` (
     PRIMARY KEY (`dimensao_id`)
 );
 
-CREATE TABLE `caixa` (
+CREATE TABLE IF NOT EXISTS `caixa` (
     `caixa_id` INT NOT NULL AUTO_INCREMENT,
     `produto_id` INT NOT NULL,
     `observacoes` VARCHAR(255) NOT NULL,
@@ -27,7 +27,7 @@ ADD CONSTRAINT `Caixa_ProdutoFK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
-CREATE TABLE `pedido` (
+CREATE TABLE IF NOT EXISTS `pedido` (
     `pedido_id` INT NOT NULL AUTO_INCREMENT,
     `produto_id` INT NOT NULL,
     `dimensao_id` INT NOT NULL,

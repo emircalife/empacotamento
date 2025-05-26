@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@Tag(name = "Dimensoes", description = "Tudo de Dimensoes desta API")
+@Tag(name = "Dimensão", description = "Tudo de Dimensão desta API")
 public interface DimensaoDocumentation {
 
     // CREATE

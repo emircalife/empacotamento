@@ -5,7 +5,7 @@ spring:
     password:
     driverClassName: org.h2.Driver
     initialize: true
-    schema: schema.sql
+    # schema: schema.sql
     data: data.sql
   sql:
     init:
@@ -29,10 +29,9 @@ spring:
           import_files: import-staging.sql
       format-sql: true
       use-sql-comments: true
-      database-plataform: org.hibernate.dialect.H2Dialect
-    jpa:
-      repositories:
-        bootstrap-mode: default
+      database-platform: org.hibernate.dialect.H2Dialect
+    repositories:
+      bootstrap-mode: default
   h2:
     console:
       enabled: true

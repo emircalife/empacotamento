@@ -4,7 +4,6 @@ import br.com.calife.empacotamento.core.exception.GenericException;
 import br.com.calife.empacotamento.domain.entity.Produto;
 import br.com.calife.empacotamento.domain.repository.ProdutoRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +29,7 @@ public class ProdutoService {
     }
 
     public Produto update(Produto obj) {
-        Produto objSaved = findById(obj.getProduto_id());
+        Produto objSaved = findById(obj.getId());
 
 //        BeanUtils.copyProperties(obj, objSaved, "produto_id");
 

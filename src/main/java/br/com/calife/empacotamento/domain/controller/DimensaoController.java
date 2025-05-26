@@ -3,6 +3,7 @@ package br.com.calife.empacotamento.domain.controller;
 import br.com.calife.empacotamento.domain.documentation.DimensaoDocumentation;
 import br.com.calife.empacotamento.domain.entity.Dimensao;
 import br.com.calife.empacotamento.domain.service.DimensaoService;
+import br.com.calife.empacotamento.config.Constants;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("Dimensoes")
+@RequestMapping(Constants.CONTROLLER.DIMENSAO.BASE_URL)
 public class DimensaoController implements DimensaoDocumentation {
     @Autowired
     private DimensaoService service;
